@@ -28,7 +28,8 @@ class HomeScreen : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home_screen, container, false)
         adapter = MovieAdapter()
         val moviesRV = view.findViewById<RecyclerView>(R.id.moviesRV)
-        moviesRV.layoutManager = LinearLayoutManager(context)
+        moviesRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
         moviesRV.adapter = adapter
         val subscribe = viewModel.fetchMoviesFromServer().subscribe{
             adapter.setData(it)

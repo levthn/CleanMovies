@@ -30,14 +30,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movies[position]
-        Glide.with(holder.itemView.context).load(Constants.image_url+movie.poster_path)
+        Glide.with(holder.itemView.context).load(Constants.image_url + movie.poster_path)
             .into(holder.itemView.findViewById(R.id.posterIV))
-        holder.itemView.findViewById<TextView>(R.id.descriptionTV).text = movie.overview
         holder.itemView.findViewById<TextView>(R.id.titleTV).text = movie.original_title
-
-
-
-
     }
 
     fun setData(list: List<MovieDomainModel>) {
